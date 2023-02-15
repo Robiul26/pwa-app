@@ -8,7 +8,12 @@ const assets = [
     './js/materialize.min.js',
     './css/style.css',
     './css/materialize.min.css',
+    './datrabase/db.json',
     './img/contact.png',
+    './img/fruits/apple.jpg',
+    './img/fruits/okra.jpg',
+    './img/fruits/orange.jpg',
+    './img/fruits/potato.jpg',
     'https://fonts.googleapis.com/icon?family=Material+Icons',
     'https://fonts.gstatic.com/s/materialicons/v139/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
     './pages/default.html'

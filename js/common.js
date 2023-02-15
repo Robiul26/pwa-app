@@ -11,6 +11,18 @@ document.addEventListener('DOMContentLoaded', function () {
     M.Sidenav.init(forms, {
         edge: 'right'
     });
+
+
+
+
+
+
+
+
+
+
+
+
 });
 
 // implement the render   

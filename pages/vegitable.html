@@ -43,8 +43,10 @@
 
     <!-- content -->
     <div class="container grey-text">
-        <h5 class="center">Vegetables</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, reprehenderit?</p>
+        <h5 class="center">সবজি (Vegetables)</h5>
+        <div class="row" id="render-section">
+
+        </div>
     </div>
 
 
@@ -52,6 +54,53 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="../js/common.js"></script>
+
+    <script>
+        fetch("../datrabase/db.json")
+            .then(res => res.json())
+            .then(data => {
+
+
+                data.vegetables.map((item, index) => {
+                    let html = `<div class="col s6 m3">
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <img src="../img/fruits/${item.img}">
+                    </div>
+                    <div class="card-action">
+                        <!-- Modal Trigger -->
+                        <button data-target="modal${item.name}" class="btn modal-trigger">উপকারিতা</button>
+    
+                        <!-- Modal Structure -->
+                        <div id="modal${item.name}" class="modal mo${item.name} modal-fixed-footer">
+                            <div class="modal-content">
+                                <h4>${item.name}</h4>
+                                <div class="card-image">
+                                    <img src="../img/fruits/${item.img}">
+                                    
+                                </div>
+                                <p>${item.description}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+                    // document.querySelector('#render-section').innerHTML += html;
+                    // Add modal HTML to page
+                    document.querySelector('#render-section').insertAdjacentHTML('beforeend', html);
+
+                    // Initialize modal
+                    let modal = document.querySelectorAll(`.mo${item.name}`);
+                    M.Modal.init(modal);
+                });
+
+
+
+            });
+    </script>
 </body>
 
 </html>
